@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  launchd service for EDITH.
+
+  Install:
+    cp com.ahmed.edith.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.ahmed.edith.plist
+
+  Control:
+    launchctl start   com.ahmed.edith
+    launchctl stop    com.ahmed.edith
+    launchctl unload  ~/Library/LaunchAgents/com.ahmed.edith.plist   # disable
+
+  Logs: logs/edith.log and logs/edith.error.log (rotated by size below).
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.ahmed.edith</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/ahmedzk11/Desktop/coding projects/my-ai-chatbot/run_edith.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/ahmedzk11/Desktop/coding projects/my-ai-chatbot</string>
+
+    <!-- Start at login and restart if the process dies. -->
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <!-- Don't spin on a crash loop. -->
+    <key>ThrottleInterval</key>
+    <integer>10</integer>
+
+    <key>StandardOutPath</key>
+    <string>/Users/ahmedzk11/Desktop/coding projects/my-ai-chatbot/logs/edith.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/ahmedzk11/Desktop/coding projects/my-ai-chatbot/logs/edith.error.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>OBJC_DISABLE_INITIALIZE_FORK_SAFETY</key>
+        <string>YES</string>
+    </dict>
+</dict>
+</plist>

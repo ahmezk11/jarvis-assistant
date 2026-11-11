@@ -1,0 +1,27 @@
+# ── Core ──────────────────────────────────────────────────────
+anthropic            # Claude API — the primary brain
+psutil               # system stats
+requests             # weather, news, web search
+python-dotenv        # loads .env
+
+# ── Voice (optional — app runs without a mic/speakers) ────────
+pyttsx3              # text-to-speech
+SpeechRecognition    # speech-to-text
+pyaudio              # microphone access
+
+# ── Offline fallback (optional) ───────────────────────────────
+ollama               # local LLM mode; Claude works without it
+
+# ── Real integrations — install to enable ────────────────────
+# Gmail / Calendar / Drive (needs GOOGLE_CALENDAR_CREDENTIALS in .env):
+google-api-python-client
+google-auth-oauthlib
+# Notion (needs NOTION_TOKEN in .env):
+notion-client
+
+# newsapi-python     # optional — better news than the BBC RSS fallback
+
+# ── Web HUD (the browser command centre in web/) ─────────────
+# The React front-end talks to this FastAPI bridge over local HTTP.
+fastapi
+uvicorn[standard]

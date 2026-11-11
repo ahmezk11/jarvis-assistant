@@ -1,0 +1,32 @@
+# Secrets — never commit
+.env
+token.json
+credentials.json
+*.token
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Local state
+tasks.json
+memory.json
+chat_history/
+daily_log/*.md
+
+# Backups of credential files
+token.json*
+*.expired-backup
+
+# TTS audio cache (regenerates on demand)
+.tts_cache/
+logs/
+
+# Local / generated
+.venv/
+.tts_cache/
+logs/
+graphify-out/
+.claude/
+.pytest_cache/
+.DS_Store
